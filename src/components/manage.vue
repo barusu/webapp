@@ -25,10 +25,10 @@
             <div class="img bg1"></div>
             <p>会议室</p>
           </router-link>
-          <div class="item">
+          <router-link class="item" tag="div" :to="{name: 'vacation'}">
             <div class="img bg2"></div>
             <p>休假</p>
-          </div>
+          </router-link>
           <div class="item">
             <div class="img bg3"></div>
             <p>用车</p>

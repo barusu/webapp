@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-  html, body {
+  html {
     height: 100%;
   }
   header {
@@ -47,14 +47,14 @@ export default {
   }
   .main {
     padding: 0 0 3.5rem;
-    height: inherit;
-    background: url(../assets/bg.png) no-repeat center top / 100%;
+    // height: inherit;
+    // background: url(../assets/bg.png) no-repeat center top / 100%;
     background-color: inherit;
   }
   .main-content {
     position: relative;
-    height: 100%;
-    overflow: auto;
+    // height: 100%;
+    // overflow: auto;
     background-color: inherit;
   }
   .tabbar {

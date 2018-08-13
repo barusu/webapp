@@ -11,6 +11,7 @@ import Workbench from '@/components/workbench'
 import AddressBook from '@/components/addressbook'
 
 import Meet from '@/components/page/meet'
+import Vacation from '@/components/page/vacation'
 
 Vue.use(Router)
 
@@ -47,6 +48,10 @@ export default new Router({
         path: 'meet',
         name: 'meet',
         component: Meet
+      }, {
+        path: 'vacation',
+        name: 'vacation',
+        component: Vacation
       }]
     }, {
       path: '/login',

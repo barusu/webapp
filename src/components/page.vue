@@ -29,7 +29,7 @@ export default {
     .back {
       height: 100%;
       float: left;
-      padding: .5em 1em;
+      padding: .5em;
       font-size: 16px;
       line-height: 1.8;
       span {

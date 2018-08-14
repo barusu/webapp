@@ -21,16 +21,16 @@
     <div class="group">
       <label class="date-wrapper">
         <span>开始时间</span>
-        <input class="input" v-model="startTime" type="datetime-local">
+        <input class="input" v-model="StartTime" type="datetime-local">
       </label>
       <label class="date-wrapper">
         <span>结束时间</span>
         <input class="input" v-model="endTime" type="datetime-local">
       </label>
-      <p class="rs-wrapper">
+      <!-- <p class="rs-wrapper">
         <span>时长（天）</span>
         <span class="placeholder" v-text="Duration"></span>
-      </p>
+      </p> -->
     </div>
     <div class="group">
       <label class="textarea-wrapper">
@@ -48,7 +48,7 @@
   import $ from '@/libs/ajax.js';
 
   export default {
-    name: 'meet',
+    name: 'vacation',
     data () {
       return {
         type: '',
@@ -60,15 +60,37 @@
     methods: {
     },
     computed: {
-      Duration() {
-        if(this.startTime && this.endTime) {
-          console.log(this.startTime);
-          var d = new Date(this.endTime) - new Date(this.startTime);
-          console.log(d);
-          return d;
+      StartTime: {
+        set(v) {
+          v = v.split(':');
+          v[1] = v[1] < '30' ? '00' : '30';
+          v = v.join(':');
+          if(v == this.startTime) this.$forceUpdate();
+          else this.startTime = v;
+        },
+        get() {
+          return this.startTime;
         }
-        return '';
+      },
+      EndTime: {
+        set(v) {
+          v = v.split(':');
+          v[1] = v[1] < '30' ? '00' : '30';
+          v = v.join(':');
+          if(v == this.endTime) this.$forceUpdate();
+          else this.endTime = v;
+        },
+        get() {
+          return this.endTime;
+        }
       }
+      // Duration() {
+      //   if(this.startTime && this.endTime) {
+      //     var d = new Date(this.endTime) - new Date(this.startTime);
+      //     return d;
+      //   }
+      //   return '';
+      // }
     },
     mounted() {
     },

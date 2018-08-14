@@ -12,6 +12,7 @@ import AddressBook from '@/components/addressbook'
 
 import Meet from '@/components/page/meet'
 import Vacation from '@/components/page/vacation'
+import News from '@/components/page/news'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
         path: 'vacation',
         name: 'vacation',
         component: Vacation
+      }, {
+        path: 'news/:nid',
+        name: 'news',
+        props: true,
+        component: News
       }]
     }, {
       path: '/login',

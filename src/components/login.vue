@@ -4,24 +4,39 @@
       <o-svg type="apple"></o-svg>
     </div>
     <div class="form">
-      <input type="text" class="name">
-      <input type="password" class="psw">
-      <div class="submit" @click="login">登录</div>
+      <input type="text" class="name" v-model="uid" autoComplete="off">
+      <input type="password" class="psw" v-model="psw" autoComplete="new-password">
+      <div class="login" @click="login">登录</div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {}
-  },
-  methods: {
-    login() {
-      this.$router.push({name: 'index'});
+  import auth from '@/libs/relic';
+  import $ from '@/libs/ajax';
+
+  export default {
+    data () {
+      return {
+        uid: 'admin',
+        psw: '123456'
+      }
+    },
+    methods: {
+      login() {
+        $.post('v1/user/appLogin', {
+          name: this.uid,
+          password: this.psw
+        }, data => {
+          if(data.status) {
+            data.person.token = data.token;
+            auth.setUser(data.person);
+            this.$router.push({name: 'index'});
+          }
+        });
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
@@ -41,8 +56,9 @@ export default {
         margin-bottom: 15px;
         border: 1px solid #eee;
         border-radius: 5px;
+        -webkit-appearance: unset;
       }
-      .submit {
+      .login {
         padding: 4px;
         line-height: 2;
         border-radius: 5px;

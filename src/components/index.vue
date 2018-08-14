@@ -19,9 +19,9 @@
     </div>
     <div class="content" @scroll="scroll">
       <div class="items">
-        <div class="item" v-for="i in list" :key="i.id">
+        <router-link class="item" tag="div" :to="{name: 'news', params: {nid: i.id}}" v-for="i in list" :key="i.id">
           <div class="img-wrapper">
-            <div class="img" style="background-image: url('/static/demo.jpg');"></div>
+            <div class="img" style="background-image: url('./static/demo.jpg');"></div>
           </div>
           <div class="body">
             <p class="title" v-text="i.title"></p>
@@ -31,7 +31,7 @@
             </p>
             <p class="summary" v-text="i.summary"></p>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
       loadList() {
         if(this._listload || this.list.length < this.page * this.pageSize) {return; }
         this._listload = true;
-        $.get('http://192.68.69.55:8083/iccp-cms-rest/v1/cms/content/pageList/157/' + (this.page + 1), {
+        $.get('http://192.68.68.105:8080/iccp-cms-rest/v1/cms/content/pageList/157/' + (this.page + 1), {
           pageSize: this.pageSize
         }, data => {
           this._listload = false;

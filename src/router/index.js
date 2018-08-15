@@ -13,6 +13,8 @@ import AddressBook from '@/components/addressbook'
 import Meet from '@/components/page/meet'
 import Vacation from '@/components/page/vacation'
 import News from '@/components/page/news'
+import Result from '@/components/page/result'
+import Record from '@/components/page/record'
 
 Vue.use(Router)
 
@@ -58,6 +60,16 @@ export default new Router({
         name: 'news',
         props: true,
         component: News
+      }, {
+        path: 'record',
+        name: 'record',
+        props: true,
+        component: Record
+      }, {
+        path: 'result',
+        name: 'result',
+        props: true,
+        component: Result
       }]
     }, {
       path: '/login',

@@ -75,8 +75,9 @@ const relic = {
       return false;
     }
   },
-  get id() {return auth.uid; },
+  get id() {return auth.id; },
   get name() {return auth.name; },
+  get phone() {return auth.phone; },
   get token() {return auth.token; }
 };
 

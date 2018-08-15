@@ -3,15 +3,15 @@
     <div class="user-info">
       <div class="user-img"></div>
       <div class="content">
-        <div class="user-name">张三</div>
-        <div class="tel">电话: <span>88822222</span></div>
+        <div class="user-name" v-text="name"></div>
+        <div class="tel">电话: <tel v-text="phone"></tel></div>
       </div>
     </div>
     <div class="user-items">
-      <div class="item">
+      <router-link class="item" tag="div" :to="{name: 'record'}">
         <div class="item-icon"></div>
         <p>个人日志</p>
-      </div>
+      </router-link>
       <div class="item">
         <div class="item-icon"></div>
         <p>日程安排</p>
@@ -52,12 +52,14 @@
 </template>
 
 <script>
-  // import $ from '@/libs/ajax.js';
+  import auth from '@/libs/relic.js';
 
   export default {
     name: 'user',
     data () {
       return {
+        name: auth.name,
+        phone: auth.phone
       };
     },
     methods: {

@@ -1,6 +1,7 @@
 import $ from 'flyio';
 
-const host = 'http://192.68.68.77:8011/mock/5b67b1a88b2e004e4c872c4d/';
+// const host = 'http://192.68.68.77:8011/mock/5b67b1a88b2e004e4c872c4d/';
+const host = 'http://192.68.68.105:8080/iccp-pmo-rest/';
 
 $.config.timeout = 10000;
 $.config.baseURL = host;
@@ -66,11 +67,11 @@ var ajax = {
       callback = data;
       data = {};
     }
-    var Data = new FormData();
-    for(var n in data) {
-      Data.append(n, data[n]);
-    }
-    $.post(url, Data).then(rs => {
+    // var Data = new FormData();
+    // for(var n in data) {
+    //   Data.append(n, data[n]);
+    // }
+    $.post(url, data).then(rs => {
       var data;
       try {
         data = JSON.parse(rs.data);

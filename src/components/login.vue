@@ -24,7 +24,7 @@
     },
     methods: {
       login() {
-        $.post('v1/user/appLogin', {
+        $.post('http://192.68.68.77:8011/mock/5b67b1a88b2e004e4c872c4d/v1/user/appLogin', {
           name: this.uid,
           password: this.psw
         }, data => {

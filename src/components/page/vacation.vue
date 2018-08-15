@@ -1,5 +1,5 @@
 <template>
-  <div class="cacation-page">
+  <div class="vacation-page">
     <div class="group">
       <label class="select-wrapper">
         <span>请假类型</span>
@@ -25,7 +25,7 @@
       </label>
       <label class="date-wrapper">
         <span>结束时间</span>
-        <input class="input" v-model="endTime" type="datetime-local">
+        <input class="input" v-model="EndTime" type="datetime-local">
       </label>
       <!-- <p class="rs-wrapper">
         <span>时长（天）</span>
@@ -35,17 +35,18 @@
     <div class="group">
       <label class="textarea-wrapper">
         <span>请假事由</span>
-        <textarea rows="3" placeholder="请输入请假事由"></textarea>
+        <textarea rows="3" v-model="cause" placeholder="请输入请假事由"></textarea>
       </label>
     </div>
     <div class="submit">
-      <span class="btn"> 提交 </span>
+      <span class="btn" @click="submit"> 提交 </span>
     </div>
   </div>
 </template>
 
 <script>
   import $ from '@/libs/ajax.js';
+  import auth from '@/libs/relic.js';
 
   export default {
     name: 'vacation',
@@ -58,6 +59,27 @@
       };
     },
     methods: {
+      submit() {
+        if(this.type && this.startTime && this.endTime && this.cause) {
+          var model = this.$msg({
+            type: 'loading',
+            full: true,
+            duration: 100000
+          });
+          $.post('v1/leaveApply/addFromApp', {
+            applyPersonId: auth.id,
+            type: this.type,
+            startTime: this.startTime + ':00.000+0000',
+            endTime: this.endTime + ':00.000+0000',
+            cause: this.cause
+          }, data => {
+            if(data && data.code === 0) {
+              model.close();
+              this.$router.replace({name: 'result', params: {msg: data.message}})
+            }
+          });
+        }
+      }
     },
     computed: {
       StartTime: {
@@ -100,10 +122,11 @@
 </script>
 
 <style lang="scss">
-  .cacation-page {
-    padding-top: 5px;
+  .vacation-page {
+    padding-top: 1px;
+    padding-bottom: 70px;
     .group {
-      margin: 10px 0 5px;
+      margin: 15px 0 0;
     }
   }
   .textarea-wrapper {
@@ -158,19 +181,5 @@
     .placeholder {
       color: #444;
     }
-  }
-  .btn {
-    display: block;
-    border-radius: 3px;
-    line-height: 3;
-    background: #3a98f8;
-    color: #fff;
-  }
-  .submit {
-    position: fixed;
-    bottom: 0;
-    padding: 10px 15px;
-    width: 100%;
-    background: #fff;
   }
 </style>

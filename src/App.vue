@@ -88,4 +88,32 @@ export default {
     clip: rect(0,0,0,0);
     z-index: -99;
   }
+  html {
+    height: 100%;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 9;
+  }
+  .btn {
+    display: block;
+    border-radius: 3px;
+    line-height: 3;
+    background: #3a98f8;
+    color: #fff;
+  }
+  .submit {
+    position: fixed;
+    bottom: 0;
+    padding: 10px 15px;
+    width: 100%;
+    background: #fff;
+  }
+  @keyframes spin {
+    from {transform: rotateZ(0deg);}
+    to   {transform: rotateZ(360deg);}
+  }
 </style>

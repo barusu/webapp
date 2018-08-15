@@ -4,13 +4,13 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <div class="swipe" style="background-image: url('./static/swipe.png');"></div>
+            <div class="swipe" style="background-image: url('./static/swipe1.png');"></div>
           </div>
           <div class="swiper-slide">
-            <div class="swipe" style="background-image: url('./static/swipe.png');"></div>
+            <div class="swipe" style="background-image: url('./static/swipe2.png');"></div>
           </div>
           <div class="swiper-slide">
-            <div class="swipe" style="background-image: url('./static/swipe.png');"></div>
+            <div class="swipe" style="background-image: url('./static/swipe3.png');"></div>
           </div>
         </div>
         <!-- 分页器 -->

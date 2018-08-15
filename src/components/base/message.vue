@@ -1,5 +1,5 @@
 <template>
-  <div class="o-message" :class="{'open': !isClose}">
+  <div class="o-message" :class="{'open': !isClose, 'full': full}">
     <div>
       <div class="o-message-content" :class="type">
         <span class="message-icon" v-if="icon" :class="icon">
@@ -15,7 +15,8 @@
   const icons = {
     success: 'ok',
     warning: 'warn',
-    error: 'error'
+    error: 'error',
+    loading: 'loading'
   };
 
   export default {
@@ -26,7 +27,8 @@
         closed: null,
         duration: 3000,
         isClose: true,
-        icon: ''
+        icon: '',
+        full: false
       };
     },
     methods: {
@@ -118,6 +120,42 @@
       opacity: 1;
       .o-message-content {
         transform: translate3d(0,0,0);
+      }
+    }
+    &.full {
+      top: 0;
+      height: 100%;
+      pointer-events: all;
+      > div {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translate(0 ,-70%);
+      }
+      .o-message-content {
+        width: 30%;
+        padding: 0;
+        background: hsla(0, 0%, 0%, .7);
+        color: #fff;
+        &::before {
+          content: '';
+          display: block;
+          width: 100%;
+          padding: 15% 0;
+        }
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          padding: 10% 0;
+        }
+        .message-icon {
+          display: block;
+          margin: auto;
+          width: 2.5em;
+          height: 2.5em;
+          animation: spin 2s infinite linear;
+        }
       }
     }
   }

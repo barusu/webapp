@@ -36,15 +36,6 @@ export default {
 </script>
 
 <style lang="scss">
-  html {
-    height: 100%;
-  }
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 44px;
-  }
   .main {
     padding: 0 0 3.5rem;
     // height: inherit;

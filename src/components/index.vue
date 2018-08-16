@@ -114,13 +114,17 @@
       .item {
         background: #fff;
         margin-bottom: 10px;
+        height: 80px;
       }
     }
     .item {
       .img-wrapper {
         position: relative;
-        height: 100px;
-        padding: 28% 0;
+        float: left;
+        width: 80px;
+        height: 100%;
+        // height: 100px;
+        // padding: 28% 0;
       }
       .img {
         position: absolute;
@@ -154,6 +158,9 @@
         color: #000;
       }
       .summary {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 14px;
         line-height: 1.5;
         text-align: left;

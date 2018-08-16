@@ -42,7 +42,7 @@ module.exports = {
     "no-extra-boolean-cast": 2,//消除本来不需要使用两个!! 来转化布尔值的情况
     "no-extra-semi": 2,//限制使用多余的分号
     "use-isnan": 2,//不要和NaN做比较
-    "curly": 2,//所有的代码块语句需要被大括号包围
+    // "curly": 2,//所有的代码块语句需要被大括号包围
     // "no-caller": 0,//代码中不使用 arguments.caller or arguments.callee
     "no-eq-null": 2,//和null 比较时使用=== 和 !==
     "no-eval": 2,

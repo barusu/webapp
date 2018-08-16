@@ -47,4 +47,57 @@ export default {
       margin-top: 44px;
     }
   }
+  .input-wrapper,
+  .textarea-wrapper {
+    position: relative;
+    display: block;
+    text-align: left;
+    background: #fff;
+    padding: 14px 15px;
+    margin-bottom: 1px;
+    span {
+      display: block;
+    }
+    textarea {
+      width: 100%;
+      resize: none;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .date-wrapper,
+  .select-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border: 0;
+    font-size: 16px;
+    line-height: 1;
+    padding: 14px 15px;
+    text-align: left;
+    margin-bottom: 1px;
+    input,
+    select {
+      position: absolute;
+      top: 0; right: 0;
+      border: 0;
+      outline: none;
+      background: #fff;
+      font-size: inherit;
+      height: 100%;
+      -webkit-appearance: unset;
+    }
+    .placeholder {
+      position: absolute;
+      top: 0; right: 0;
+      line-height: 1;
+      padding: 14px;
+      pointer-events: none;
+      color: #888;
+    }
+  }
 </style>

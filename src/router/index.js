@@ -15,6 +15,7 @@ import Vacation from '@/components/page/vacation'
 import News from '@/components/page/news'
 import Result from '@/components/page/result'
 import Record from '@/components/page/record'
+import BusinessTrip from '@/components/page/businesstrip'
 
 Vue.use(Router)
 
@@ -63,8 +64,11 @@ export default new Router({
       }, {
         path: 'record',
         name: 'record',
-        props: true,
         component: Record
+      }, {
+        path: 'businesstrip',
+        name: 'businesstrip',
+        component: BusinessTrip
       }, {
         path: 'result',
         name: 'result',

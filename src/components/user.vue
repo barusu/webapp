@@ -4,7 +4,7 @@
       <div class="user-img"></div>
       <div class="content">
         <div class="user-name" v-text="name"></div>
-        <div class="tel">电话: <tel v-text="phone"></tel></div>
+        <div class="tel">电话: <a :href="'tel:' + phone" v-text="phone"></a></div>
       </div>
     </div>
     <div class="user-items">
@@ -121,6 +121,9 @@
     }
     .tel {
       color: #777;
+      > a {
+        color: inherit;
+      }
     }
     .user-img {
       width: 64px;

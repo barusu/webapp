@@ -1,11 +1,6 @@
 <template>
   <div class="meet-page">
     <div class="meets">
-      <div class="meet" v-for="i in List">
-        <p class="name" v-text="i.name"></p>
-        <p class="resources"><span v-for="r in i.resources" v-text="r"></span></p>
-        <p class="remark" v-text="i.remark"></p>
-      </div>
     </div>
   </div>
 </template>
@@ -42,7 +37,7 @@
       }
     },
     mounted() {
-      this.loadList();
+      // this.loadList();
     },
     beforeDestroy() {
     }

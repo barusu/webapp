@@ -33,10 +33,10 @@
             <div class="img bg3"></div>
             <p>用车</p>
           </div>
-          <div class="item">
+          <router-link class="item" tag="div" :to="{name: 'businesstrip'}">
             <div class="img bg4"></div>
             <p>出差</p>
-          </div>
+          </router-link>
           <div class="item">
             <div class="img bg5"></div>
             <p>接待</p>

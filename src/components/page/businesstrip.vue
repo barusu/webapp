@@ -55,7 +55,7 @@
             full: true,
             duration: 100000
           });
-          $.post('v1/businessTrip/addFromApp', {
+          $.post('iccp-pmo-rest/v1/businessTrip/addFromApp', {
             applyPersonId: auth.id,
             tripAddress: this.type,
             tripStartTime: this.startTime + 'T00:00:00.000+0000',

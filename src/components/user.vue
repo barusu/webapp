@@ -22,6 +22,16 @@
       </div>
     </div>
     <div class="user-items">
+      <router-link class="item" tag="div" :to="{name: 'record'}">
+        <div class="item-icon">
+          <o-svg type="vacation"></o-svg>
+        </div>
+        <p>请假</p>
+      </router-link>
+      <router-link class="item" tag="div" :to="{name: 'auditing'}">
+        <div class="item-icon"></div>
+        <p>我的审批</p>
+      </router-link>
       <div class="item">
         <div class="item-icon"></div>
         <p>一学两做</p>
@@ -64,6 +74,7 @@
     },
     methods: {
       logout() {
+        auth.clear();
         this.$router.push({name: 'login'});
       }
     },

@@ -8,15 +8,26 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   body {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #444;
     background: #f4f5f6;
   }
+  body::before {
+    content: '';
+    position: fixed;
+    top: -1%; left: -2%;
+    display: block;
+    width: 104%;
+    height: 102%;
+    z-index: -1;
+    filter: blur(3px);
+  }
+  body.bg01::before {background: url('./assets/bg01.jpg') center / cover; }
+  body.bg02::before {background: url('./assets/bg02.jpg') center / cover; }
   /* reset css */
   html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, cite, img, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     border: 0;
@@ -95,8 +106,14 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 44px;
+    height: 2em;
     z-index: 9;
+    font-size: 16px;
+    background: #fff;
+    text-align: center;
+    span {
+      line-height: 2;
+    }
   }
   .btn {
     display: block;

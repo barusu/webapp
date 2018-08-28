@@ -66,7 +66,7 @@
             full: true,
             duration: 100000
           });
-          $.post('v1/leaveApply/addFromApp', {
+          $.post('iccp-pmo-rest/v1/leaveApply/addFromApp', {
             applyPersonId: auth.id,
             type: this.type,
             startTime: this.startTime + ':00.000+0000',

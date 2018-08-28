@@ -17,7 +17,7 @@
     },
     methods: {
       loadList() {
-        $.get('v1/meetRoom/appGetMeetRoom/-1', data => {
+        $.get('iccp-pmo-rest/v1/meetRoom/appGetMeetRoom/-1', data => {
           if(Array.isArray(data.data)) {
             this.list = data.data;
           }

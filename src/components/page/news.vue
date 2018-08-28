@@ -25,7 +25,7 @@
     props: ['nid'],
     methods: {
       loadData() {
-        $.get('http://192.68.68.105:8080/iccp-cms-rest/v1/cms/content/newsView/' + this.nid, data => {
+        $.get('iccp-cms-rest/v1/cms/content/newsView/' + this.nid, data => {
           console.log(data);
           this.title = data.contentExt.title;
           this.author = data.contentExt.author;

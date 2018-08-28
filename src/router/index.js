@@ -7,7 +7,7 @@ import Login from '@/components/login'
 import Index from '@/components/index'
 import Manage from '@/components/manage'
 import User from '@/components/user'
-import Workbench from '@/components/workbench'
+import Component from '@/components/component'
 import AddressBook from '@/components/addressbook'
 
 import Meet from '@/components/page/meet'
@@ -15,6 +15,7 @@ import Vacation from '@/components/page/vacation'
 import News from '@/components/page/news'
 import Result from '@/components/page/result'
 import Record from '@/components/page/record'
+import Auditing from '@/components/page/auditing'
 import BusinessTrip from '@/components/page/businesstrip'
 
 Vue.use(Router)
@@ -24,30 +25,37 @@ export default new Router({
     {
       path: '/',
       component: Main,
+      meta: {requiresAuth: true},
       children: [{
         path: '',
         name: 'index',
+        meta: {title: '首页'},
         component: Index
       }, {
         path: 'manage',
         name: 'manage',
+        meta: {title: '首页'},
         component: Manage
       }, {
         path: 'user',
         name: 'user',
+        meta: {title: '我的'},
         component: User
       }, {
-        path: 'workbench',
-        name: 'workbench',
-        component: Workbench
+        path: 'component',
+        name: 'component',
+        meta: {title: '组件'},
+        component: Component
       }, {
         path: 'addressbook',
         name: 'addressbook',
+        meta: {title: '通讯录'},
         component: AddressBook
       }]
     }, {
       path: '/page',
       component: Page,
+      meta: {requiresAuth: true},
       children: [{
         path: 'meet',
         name: 'meet',
@@ -65,6 +73,10 @@ export default new Router({
         path: 'record',
         name: 'record',
         component: Record
+      }, {
+        path: 'auditing',
+        name: 'auditing',
+        component: Auditing
       }, {
         path: 'businesstrip',
         name: 'businesstrip',

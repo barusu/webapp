@@ -1,7 +1,8 @@
 import $ from 'flyio';
 
 // const host = 'http://192.68.68.77:8011/mock/5b67b1a88b2e004e4c872c4d/';
-const host = 'http://192.68.68.105:8080/iccp-pmo-rest/';
+const host = 'http://192.68.68.105:8080/';
+// const host = 'http://122.224.144.76:8008/';
 
 $.config.timeout = 10000;
 $.config.baseURL = host;

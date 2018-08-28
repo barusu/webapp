@@ -5,10 +5,30 @@ import App from './App'
 import router from './router'
 import './assets/swiper.css'
 import oo from '@/components/base/index.js';
+import auth from '@/libs/relic.js';
 
 Vue.use(oo);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!auth.isLogin) {
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      next();
+    }
+  } else {
+    next(); // 确保一定要调用 next()
+  }
+});
 
 /* eslint-disable no-new */
 new Vue({
